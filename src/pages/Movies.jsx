@@ -29,6 +29,7 @@ export const Movies = () => {
   const query = searchParams.get('query');
 
   useEffect(() => {
+    console.log(123);
     if (!query) return;
     async function getMoviesByQuery() {
       setLoading(true);
@@ -41,7 +42,6 @@ export const Movies = () => {
         }
       } catch (error) {
         setMovies([]);
-        setLoading(false);
         toast.error('Something went wrong. Please, try again');
       } finally {
         setLoading(false);

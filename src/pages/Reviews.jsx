@@ -52,14 +52,11 @@ const Reviews = () => {
   return (
     <>
       {loading && <Loader />}
-      <StyledList>
-        {reviewsList.length ? (
-          reviewsList
-        ) : (
-          <NoReviewsMessage>There are no reviews yet</NoReviewsMessage>
-        )}
-      </StyledList>
-      ;
+      {reviewsList.length ? (
+        <StyledList>{reviewsList}</StyledList>
+      ) : (
+        <NoInfoMessage> There are no reviews yet</NoInfoMessage>
+      )}
     </>
   );
 };
@@ -91,16 +88,26 @@ export const StyledList = styled.div`
   margin-top: 20px;
 `;
 
-export const NoReviewsMessage = styled.p`
-  text-align: center;
-  font-size: 1rem;
-  color: #023047;
-`;
-
 export const StyledHr = styled.hr`
   border-top: 1px solid #3ca1d9;
   margin-top: 20px;
   margin-bottom: 20px;
+`;
+
+export const NoInfoMessage = styled.p`
+  font-family: 'Righteous', cursive;
+  position: relative;
+  color: #0b2f00;
+  display: inline-block;
+  font-size: 3em;
+  padding: 11px 60px;
+  margin: 0 auto;
+  line-height: 1;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
 `;
 
 export default Reviews;

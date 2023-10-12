@@ -83,7 +83,7 @@ export const StyledListItem = styled.li`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
   img {
-    border-radius: 50%;
+    border-radius: 15%;
   }
 
   h4 {
