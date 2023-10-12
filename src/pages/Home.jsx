@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { TRENDINGENDPOINT } from 'utils/constans';
 import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import { getTrendMovies } from 'fetches/api';
+import { getMovies } from 'fetches/api';
 import styled, { css } from 'styled-components';
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
     async function getTrendMov() {
       setLoading(true);
       try {
-        const getTrend = await getTrendMovies(TRENDINGENDPOINT);
+        const getTrend = await getMovies(TRENDINGENDPOINT);
         if (Array.isArray(getTrend.results)) {
           setTrending(getTrend.results);
         } else {

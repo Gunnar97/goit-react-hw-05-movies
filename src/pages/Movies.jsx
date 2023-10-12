@@ -1,5 +1,5 @@
 import Loader from 'components/Loader';
-import { getSearchMovies } from 'fetches/api';
+import { getMovies } from 'fetches/api';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
@@ -30,12 +30,12 @@ export const Movies = () => {
 
   useEffect(() => {
     if (!query) return;
-    async function getMovies() {
+    async function getMoviesByQuery() {
       setLoading(true);
       try {
-        const getMovies = await getSearchMovies(SEARCHMOVIEBYQUERY, { query });
-        if (Array.isArray(getMovies.results)) {
-          setMovies(getMovies.results);
+        const getMovie = await getMovies(SEARCHMOVIEBYQUERY, { query });
+        if (Array.isArray(getMovie.results)) {
+          setMovies(getMovie.results);
         } else {
           setMovies([]);
         }
@@ -47,7 +47,7 @@ export const Movies = () => {
         setLoading(false);
       }
     }
-    getMovies();
+    getMoviesByQuery();
   }, [query]);
   return (
     <>

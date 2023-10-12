@@ -1,4 +1,4 @@
-import { getMovie } from 'fetches/api';
+import { getMovies } from 'fetches/api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -15,8 +15,8 @@ const Reviews = () => {
     if (!id) return;
     async function getCast() {
       try {
-        const getMovies = await getMovie(FORFATCH);
-        setReviews(getMovies.results);
+        const getReviews = await getMovies(FORFATCH);
+        setReviews(getReviews.results);
       } catch (error) {
         setReviews(null);
         setLoading(false);

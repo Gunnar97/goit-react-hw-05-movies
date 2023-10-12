@@ -1,4 +1,4 @@
-import { getMovie } from 'fetches/api';
+import { getMovies } from 'fetches/api';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import {
   Link,
@@ -25,8 +25,8 @@ const MovieDetails = () => {
     setLoading(true);
     async function getMovieById() {
       try {
-        const getMovies = await getMovie(FORFATCH);
-        setMovie(getMovies);
+        const getMovie = await getMovies(FORFATCH);
+        setMovie(getMovie);
       } catch (error) {
         setMovie(null);
         setLoading(false);

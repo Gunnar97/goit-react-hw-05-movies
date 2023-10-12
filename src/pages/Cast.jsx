@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
-import { getMovie } from 'fetches/api';
+import { getMovies } from 'fetches/api';
 import { CASTSENPOINT, MOVIEENDPOINT } from 'utils/constans';
 import imgAvatar from '../img/default avatar.jpeg';
 
@@ -17,8 +17,8 @@ const Cast = () => {
     if (!id) return;
     async function getCast() {
       try {
-        const getMovies = await getMovie(FORFATCH);
-        setCredits(getMovies.cast);
+        const getMovie = await getMovies(FORFATCH);
+        setCredits(getMovie.cast);
       } catch (error) {
         setCredits(null);
         setLoading(false);
